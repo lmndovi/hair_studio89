@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const VIDEO_SRC = "/videos/salon-vid1.mp4";
+const VIDEO_SRC = "/videos/salon-vid2.mp4";
 
 /** How long the outgoing and incoming clips blend (ms) */
 const CROSSFADE_MS = 1400;

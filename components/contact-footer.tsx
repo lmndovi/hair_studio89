@@ -20,8 +20,8 @@ export function ContactFooter() {
             <p className="uppercase tracking-[0.16em] text-primary-foreground">
               Visit
             </p>
-            <p>89 Studio Lane</p>
-            <p>London, UK</p>
+            <p>63 Lupus St</p>
+            <p>Pimlico, London SW1V 3EY</p>
             <p>Mon-Sat: 9am - 7pm</p>
           </div>
           <div className="space-y-2 text-sm text-primary-foreground/80">
