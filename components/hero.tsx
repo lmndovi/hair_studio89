@@ -19,7 +19,7 @@ export function Hero() {
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-7 text-white/90 sm:text-lg">
           Hair Studio 89 blends precision cutting, dimensional colour, and
-          modern finishing in a calm boutique setting designed around you.
+          modern finishing in a boutique setting designed around you.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-4">
