@@ -41,7 +41,7 @@ export function Team() {
     <section id="team" className="bg-background py-20 lg:py-24">
       <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
         <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          Meet The Team
+          Meet The Teaml
         </p>
         <h2 className="mt-3 max-w-2xl font-serif text-3xl text-foreground sm:text-4xl">
           The creatives behind HairStudio&nbsp;89.
