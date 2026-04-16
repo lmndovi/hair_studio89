@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Libre_Baskerville, Lato } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-libre-baskerville",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const lato = Lato({
   subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  variable: "--font-lato",
 });
 
 export const metadata: Metadata = {
-  title: "Hair Studio 89",
-  description: "Premium hair styling, color, and bridal services.",
+  title: "HairStudio 89 | Luxury Hair Salon in Pimlico, London",
+  description:
+    "Step into HairStudio 89 — a premium, genderless hair salon in Pimlico, London. Expert balayage, colouring, styling and treatments by Araceli Perez and Daniel Matez.",
 };
 
 export default function RootLayout({
@@ -25,9 +28,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${lato.variable} ${libreBaskerville.variable}`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="font-sans antialiased">
+        {children}
+      </body>
     </html>
   );
 }

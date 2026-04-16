@@ -18,13 +18,13 @@ const reviews = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="bg-secondary py-20 lg:py-24">
+    <section id="testimonials" className="bg-muted py-20 lg:py-24">
       <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
         <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
           Client Love
         </p>
         <h2 className="mt-3 max-w-2xl font-serif text-3xl text-foreground sm:text-4xl">
-          Trusted by clients who want elevated, wearable beauty.
+          Trusted by clients.
         </h2>
 
         <div className="mt-10 grid gap-5 md:grid-cols-3">

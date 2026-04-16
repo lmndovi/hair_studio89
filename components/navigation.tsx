@@ -9,7 +9,7 @@ const BOOKING_URL =
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Services", href: "#services" },
-  { label: "About", href: "#team" },
+  { label: "About", href: "#why" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
