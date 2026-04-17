@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { BOOKING_URL } from "@/lib/booking";
 
 const services = [
   {
@@ -6,44 +6,35 @@ const services = [
     description:
       "Smooth, bouncy styling with long-lasting movement and shine.",
     tag: "Styling",
-    image: "/images/gallery/hair-result-3.jpg",
-    imageAlt: "Finished blowout with soft movement and shine",
   },
   {
     title: "Precision Haircut",
     description:
       "Shape-enhancing cuts tailored to your features and lifestyle.",
     tag: "Cut",
-    image: "/images/gallery/hair-result-1.jpg",
-    imageAlt: "Precision haircut with clean shape and finish",
   },
   {
     title: "Balayage & Gloss",
     description:
       "Soft dimensional color finished with healthy, reflective gloss.",
     tag: "Color",
-    image: "/images/balayage.jpg",
-    imageAlt: "Balayage hair colour with glossy dimension",
   },
   {
     title: "Bridal Styling",
     description:
       "Elegant event hair with trial support for your biggest moments.",
     tag: "Bridal",
-    image: "/images/gallery/hair-result-2.jpg",
-    imageAlt: "Elegant styled hair for an event",
   },
   {
     title: "Treatment Ritual",
     description:
       "Deep hydration and scalp care to restore softness and strength.",
     tag: "Care",
-    image: "/images/hair-treatment.jpg",
-    imageAlt: "Hair treatment for hydration and scalp care",
   },
 ] as const;
 
-const carouselServices = [...services, ...services];
+/** Two identical halves for a seamless infinite marquee */
+const serviceMarqueeStrip = [...services, ...services];
 
 export function Services() {
   return (
@@ -59,49 +50,48 @@ export function Services() {
             </h2>
           </div>
           <a
-            href="#contact"
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-md border border-border bg-card px-5 py-2.5 text-xs uppercase tracking-wider text-foreground transition hover:border-foreground/40 hover:bg-secondary"
           >
-            Consultation
+            Book now
           </a>
         </div>
 
-        <div className="scrollbar-hide overflow-x-auto">
-          <div className="flex w-max gap-5 pb-3">
-            {carouselServices.map((service, index) => (
-              <article
-                key={`${service.title}-${index}`}
-                className="group flex w-72 shrink-0 cursor-pointer flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-              >
-                <div className="relative h-72 w-72 shrink-0 bg-muted">
-                  <Image
-                    src={service.image}
-                    alt={service.imageAlt}
-                    fill
-                    className="object-cover transition duration-300 group-hover:scale-[1.03]"
-                    sizes="288px"
-                    priority={index === 0}
-                  />
-                </div>
-                <div className="flex flex-1 flex-col px-6 pt-6 pb-10 lg:pb-12">
-                  <span className="w-fit rounded-full bg-secondary px-3 py-1 text-[11px] uppercase tracking-wider text-muted-foreground">
+        <div className="services-marquee-outer py-3">
+          <div className="services-marquee-track flex gap-5">
+            {[...serviceMarqueeStrip, ...serviceMarqueeStrip].map(
+              (service, index) => (
+                <a
+                  key={`${service.title}-${index}`}
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex h-[22rem] w-[19.5rem] shrink-0 flex-col rounded-2xl border border-border/90 bg-card p-8 shadow-sm ring-1 ring-transparent transition duration-300 hover:-translate-y-1 hover:border-accent/35 hover:bg-secondary/30 hover:shadow-md hover:ring-accent/15"
+                >
+                  <span className="w-fit rounded-full border border-border/80 bg-background/80 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground transition group-hover:border-accent/30 group-hover:text-foreground">
                     {service.tag}
                   </span>
-                  <h3 className="mt-4 font-serif text-2xl text-card-foreground">
+
+                  <h3 className="mt-7 font-serif text-2xl leading-snug tracking-tight text-card-foreground md:text-[1.65rem]">
                     {service.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  <div className="mt-5 h-px w-10 bg-accent/60 transition group-hover:w-14 group-hover:bg-accent" />
+
+                  <p className="mt-5 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
-                  <a
-                    href="#contact"
-                    className="mt-auto w-fit pt-5 text-xs uppercase tracking-widest text-accent transition group-hover:text-foreground"
-                  >
-                    Learn More
-                  </a>
-                </div>
-              </article>
-            ))}
+
+                  <span className="mt-6 inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.22em] text-accent transition group-hover:gap-3 group-hover:text-foreground">
+                    Enquire
+                    <span aria-hidden className="text-base leading-none">
+                      →
+                    </span>
+                  </span>
+                </a>
+              ),
+            )}
           </div>
         </div>
       </div>

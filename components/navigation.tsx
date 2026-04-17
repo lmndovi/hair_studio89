@@ -1,10 +1,8 @@
 "use client";
 
+import { BOOKING_URL } from "@/lib/booking";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { useState } from "react";
-
-const BOOKING_URL =
-  "https://s-iq.co/BookingPortal/dist/?salonid=dbafbaca-eef6-4027-8a63-87a83f5384a0&tab=book";
 
 const navLinks = [
   { label: "Home", href: "#" },
