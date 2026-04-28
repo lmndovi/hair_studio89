@@ -3,7 +3,6 @@ import {
   Gem,
   Heart,
   Leaf,
-  Palette,
   Sparkles,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -15,39 +14,33 @@ const values: {
 }[] = [
   {
     icon: Gem,
-    title: "Genderless",
+    title: "The Studio Experience",
     description:
-      "We believe in charging only for what you need, regardless of your gender.",
+      "Step into a calm, one-to-one space where every detail is considered. From consultation to finish, your experience is entirely tailored to you.",
   },
   {
     icon: Sparkles,
-    title: "Exceptional hair care",
+    title: "Our Approach",
     description:
-      "Our team of creative directors and colourists are committed to providing you with the highest quality hair care.",
+      "We focus on lived-in colour and balayage with a personalised method, creating soft, seamless results designed to grow out beautifully.",
   },
   {
     icon: Heart,
-    title: "Unmatched experience",
+    title: "What We Do Differently",
     description:
-      "We are dedicated to creating an unforgettable hair experience for every client.",
+      "A more considered approach to hair - one-to-one appointments, thoughtful colour placement, and results that feel effortless and natural.",
   },
   {
     icon: Leaf,
-    title: "Enviable shine",
+    title: "The Art of Colour",
     description:
-      "Our salon only uses the best and most natural products to ensure that your hair shines.",
+      "Specialising in lived-in colour and balayage, we create dimension, softness, and movement through carefully placed, bespoke colour work.",
   },
   {
     icon: Armchair,
-    title: "Relaxing environment",
+    title: "Tailored To You",
     description:
-      "We believe in creating a welcoming and relaxing environment where you can unwind and enjoy your hair experience.",
-  },
-  {
-    icon: Palette,
-    title: "Talented creatives",
-    description:
-      "Our team is made up of highly skilled and talented creatives who are passionate about their craft.",
+      "No two appointments are the same. Every colour is customised to suit your tone, lifestyle, and desired level of maintenance.",
   },
 ];
 
@@ -56,21 +49,24 @@ export function WhyChooseUs() {
     <section className="bg-background py-20 lg:py-32" id="why">
       <div className="mx-auto max-w-6xl px-6 lg:px-16">
         <div className="mb-16 text-center lg:mb-24">
-          <p className="mb-4 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            Our Mission
-          </p>
           <h2 className="font-serif text-3xl tracking-tight text-balance text-foreground md:text-5xl lg:text-6xl">
-            Why Choose Hair Studio 89?
+            The Studio Experience
           </h2>
         </div>
 
-        <ul className="grid grid-cols-1 gap-12 md:grid-cols-3 lg:gap-16">
-          {values.map((value) => {
+        <ul className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-6 lg:gap-16">
+          {values.map((value, index) => {
             const Icon = value.icon;
+            const layoutClass =
+              index === 3
+                ? "lg:col-start-2"
+                : index === 4
+                  ? "lg:col-start-4"
+                  : "";
             return (
               <li
                 key={value.title}
-                className="flex flex-col items-center text-center"
+                className={`flex flex-col items-center text-center lg:col-span-2 ${layoutClass}`}
               >
                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-border">
                   <Icon className="h-6 w-6 text-accent" />

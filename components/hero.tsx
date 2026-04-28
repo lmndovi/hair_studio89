@@ -1,5 +1,11 @@
 import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { BOOKING_URL } from "@/lib/booking";
+import { Cairo } from "next/font/google";
+
+const cairo = Cairo({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+});
 
 export function Hero() {
   return (
@@ -8,16 +14,13 @@ export function Hero() {
       <div className="absolute inset-0 z-10 bg-black/45" />
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-black/55 to-background" />
 
-      <div className="relative z-20 mx-auto flex min-h-[calc(100vh-7rem)] w-full max-w-7xl flex-col justify-end px-6 pb-12 lg:px-12 lg:pb-20">
-        <p className="mb-4 inline-flex w-fit rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.24em] text-white backdrop-blur-sm">
-          Luxury Salon Experience
-        </p>
-        <h1 className="max-w-3xl font-serif text-4xl leading-tight text-white sm:text-5xl lg:text-6xl">
-          Create your signature look with effortless confidence.
-        </h1>
-        <p className="mt-6 max-w-2xl text-base leading-7 text-white/90 sm:text-lg">
-          Hair Studio 89 blends precision cutting, dimensional colour, and
-          modern finishing in a boutique setting designed around you.
+      <div className="relative z-20 mx-auto flex min-h-[calc(100vh-7rem)] w-full max-w-7xl flex-col justify-end px-6 pb-16 lg:px-12 lg:pb-24">
+        <p
+          className={`${cairo.className} max-w-2xl text-lg leading-snug text-white sm:text-xl lg:text-3xl`}
+        >
+          Lived-in colour specialists creating soft, blended blondes and
+          brondes. Our focus is on natural-looking colour that grows
+          seamlessly and complements your unique style.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-4">

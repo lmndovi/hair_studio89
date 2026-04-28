@@ -19,12 +19,7 @@ const services = [
       "Soft dimensional color finished with healthy, reflective gloss.",
     tag: "Color",
   },
-  {
-    title: "Bridal Styling",
-    description:
-      "Elegant event hair with trial support for your biggest moments.",
-    tag: "Bridal",
-  },
+
   {
     title: "Treatment Ritual",
     description:
@@ -59,7 +54,11 @@ export function Services() {
           </a>
         </div>
 
-        <div className="services-marquee-outer py-3">
+        <div
+          className="services-marquee-outer py-3"
+          tabIndex={0}
+          aria-label="Signature services carousel"
+        >
           <div className="services-marquee-track flex gap-5">
             {[...serviceMarqueeStrip, ...serviceMarqueeStrip].map(
               (service, index) => (
