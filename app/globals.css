@@ -4,55 +4,70 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Hair Studio 89 — editorial luxe (cream / espresso / gold) */
+
 :root {
-  /* Light, bright, airy theme - white/off-white like the salon */
-  --background: oklch(0.995 0.002 90);
-  --foreground: oklch(0.25 0.01 60);
-  /* Soft off-white card */
-  --card: oklch(0.98 0.003 85);
-  --card-foreground: oklch(0.25 0.01 60);
-  --popover: oklch(0.995 0.002 90);
-  --popover-foreground: oklch(0.25 0.01 60);
-  /* Charcoal primary for accents */
-  --primary: oklch(0.3 0.01 60);
-  --primary-foreground: oklch(0.98 0.003 85);
-  /* Warm off-white secondary */
-  --secondary: oklch(0.97 0.005 80);
-  --secondary-foreground: oklch(0.25 0.01 60);
-  --muted: oklch(0.94 0.005 80);
-  --muted-foreground: oklch(0.5 0.01 60);
-  /* Warm taupe accent */
-  --accent: oklch(0.55 0.04 60);
-  --accent-foreground: oklch(0.98 0.003 85);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9 0.005 80);
-  --input: oklch(0.9 0.005 80);
-  --ring: oklch(0.55 0.04 60);
-  --chart-1: oklch(0.55 0.04 60);
-  --chart-2: oklch(0.6 0.03 60);
-  --chart-3: oklch(0.4 0.02 60);
-  --chart-4: oklch(0.75 0.04 80);
-  --chart-5: oklch(0.65 0.03 50);
-  --radius: 0.375rem;
-  /* Sidebar (used by shadcn sidebar) — aligned with salon neutrals */
-  --sidebar: oklch(0.98 0.003 85);
-  --sidebar-foreground: oklch(0.25 0.01 60);
-  --sidebar-primary: oklch(0.3 0.01 60);
-  --sidebar-primary-foreground: oklch(0.98 0.003 85);
-  --sidebar-accent: oklch(0.94 0.005 80);
-  --sidebar-accent-foreground: oklch(0.25 0.01 60);
-  --sidebar-border: oklch(0.9 0.005 80);
-  --sidebar-ring: oklch(0.55 0.04 60);
+  --radius: 0.5rem;
+
+  --background: oklch(0.972 0.012 80);
+  --foreground: oklch(0.215 0.025 50);
+  --cream: oklch(0.955 0.018 78);
+  --espresso: oklch(0.215 0.025 50);
+  --gold: oklch(0.7 0.085 70);
+
+  --card: oklch(0.985 0.008 80);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.985 0.008 80);
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(0.215 0.025 50);
+  --primary-foreground: oklch(0.972 0.012 80);
+  --secondary: oklch(0.92 0.018 75);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.93 0.014 78);
+  --muted-foreground: oklch(0.48 0.022 55);
+  --accent: oklch(0.7 0.085 70);
+  --accent-foreground: oklch(0.972 0.012 80);
+
+  --destructive: oklch(0.55 0.18 25);
+  --destructive-foreground: oklch(0.985 0.008 80);
+
+  --border: oklch(0.86 0.018 75);
+  --input: oklch(0.88 0.018 75);
+  --ring: oklch(0.7 0.085 70);
+
+  --chart-1: oklch(0.7 0.085 70);
+  --chart-2: oklch(0.55 0.06 55);
+  --chart-3: oklch(0.35 0.04 50);
+  --chart-4: oklch(0.82 0.06 78);
+  --chart-5: oklch(0.62 0.07 62);
+
+  --sidebar: oklch(0.985 0.008 80);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: oklch(0.215 0.025 50);
+  --sidebar-primary-foreground: oklch(0.972 0.012 80);
+  --sidebar-accent: oklch(0.93 0.014 78);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: oklch(0.86 0.018 75);
+  --sidebar-ring: oklch(0.7 0.085 70);
 }
 
 @theme inline {
-  /* next/font in layout sets --font-lato / --font-libre-baskerville on <html> */
-  --font-sans: var(--font-lato), "Lato", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-libre-baskerville), "Libre Baskerville", ui-serif,
-    Georgia, serif;
+  --font-display: var(--font-fraunces), "Fraunces", "Cormorant Garamond",
+    ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui,
+    sans-serif;
+  --font-serif: var(--font-fraunces), "Fraunces", "Cormorant Garamond",
+    ui-serif, Georgia, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -72,15 +87,14 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-cream: var(--cream);
+  --color-espresso: var(--espresso);
+  --color-gold: var(--gold);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 2px);
-  --radius-md: var(--radius);
-  --radius-lg: calc(var(--radius) + 2px);
-  --radius-xl: calc(var(--radius) + 6px);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -95,16 +109,49 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html,
   body {
     @apply bg-background text-foreground;
   }
   html {
     @apply font-sans;
   }
+  body {
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+.tiny-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+
+.divider-line {
+  height: 1px;
+  background: var(--color-border);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
 }
 
 /* Hide scrollbar for horizontal gallery */
@@ -114,61 +161,4 @@ html {
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
-}
-
-/* Signature services — infinite horizontal marquee */
-@keyframes services-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.services-marquee-outer {
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  cursor: grab;
-}
-
-.services-marquee-outer::-webkit-scrollbar {
-  display: none;
-}
-
-.services-marquee-outer:active {
-  cursor: grabbing;
-}
-
-.services-marquee-track {
-  display: flex;
-  width: max-content;
-  animation: services-marquee 75s linear infinite;
-}
-
-.services-marquee-track:hover {
-  animation-play-state: paused;
-}
-
-.services-marquee-outer:active .services-marquee-track,
-.services-marquee-outer:focus-within .services-marquee-track {
-  animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .services-marquee-outer {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .services-marquee-outer::-webkit-scrollbar {
-    display: none;
-  }
-
-  .services-marquee-track {
-    animation: none;
-  }
 }

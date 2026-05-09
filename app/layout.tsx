@@ -1,23 +1,21 @@
 import type { Metadata } from "next";
-import { Libre_Baskerville, Lato } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 
-const libreBaskerville = Libre_Baskerville({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-libre-baskerville",
+  variable: "--font-fraunces",
 });
 
-const lato = Lato({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
-  variable: "--font-lato",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
   title: "HairStudio 89 | Luxury Hair Salon in Pimlico, London",
   description:
-    "Step into HairStudio 89 — a premium, genderless hair salon in Pimlico, London. Expert balayage, colouring, styling and treatments by Araceli Perez and Daniel Matez.",
+    "Step into HairStudio 89 \u2014 a premium, genderless hair salon in Pimlico, London. Expert balayage, colouring, styling and treatments by Araceli Perez and Daniel Matez.",
 };
 
 export default function RootLayout({
@@ -26,13 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${lato.variable} ${libreBaskerville.variable}`}
-    >
-      <body className="font-sans antialiased">
-        {children}
-      </body>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }

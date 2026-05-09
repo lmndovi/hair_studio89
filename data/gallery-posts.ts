@@ -2,7 +2,7 @@
  * Hand-picked gallery tiles (images under /public).
  * Reorder or edit `caption`; keep each `id` unique.
  *
- * Optional `instagramPostUrl`: paste a single post’s link so the tile opens
+ * Optional `instagramPostUrl`: paste a single post's link so the tile opens
  * that Instagram URL (otherwise the tile is display-only).
  */
 export type CuratedGalleryPost = {
@@ -16,7 +16,7 @@ export const curatedGalleryPosts: CuratedGalleryPost[] = [
   {
     id: "balayage",
     imageSrc: "/images/balayage.jpg",
-    caption: "Balayage & gloss",
+    caption: "Balayage \u0026 gloss",
   },
   {
     id: "treatment",
@@ -36,7 +36,7 @@ export const curatedGalleryPosts: CuratedGalleryPost[] = [
   {
     id: "result-3",
     imageSrc: "/images/gallery/hair-result-3.jpg",
-    caption: "Movement & shine",
+    caption: "Movement \u0026 shine",
   },
   {
     id: "studio",

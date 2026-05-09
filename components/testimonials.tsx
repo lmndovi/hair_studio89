@@ -1,18 +1,18 @@
 const reviews = [
   {
     quote:
-      "Best salon experience I've had in years. The cut grows out beautifully and still feels effortless after weeks.",
-    name: "Amelia H.",
+      "I\u2019ve been going to Daniel for 4 years, he\u2019s fantastic and his colleague is also good. Even after many years of coloring my hair are still healthy thanks to Daniel\u2019s professionalism. Today Daniel was on holiday and his colleague Aracely did my hair and the result is extraordinary. They are both amazing.",
+    name: "Greta A.",
   },
   {
     quote:
-      "My balayage is exactly what I asked for - bright, natural, and so soft. The team is warm and highly skilled.",
-    name: "Sophie W.",
+      "Daniel is a magician! Had balayage taking my (rather ignored and poorly treated) limp dark brown hair, to a gorgeous mid brown and caramel with hints of mid blonde and I honestly feel like an entirely new human. I knew I wanted to go lighter, but wasn\u2019t sure what would suit my skin tone or colouring in general, and he absolutely nailed it! Friendly, professional, great drinks selection, amazing head massage during hair washing - cannot recommend enough!",
+    name: "Jade T.",
   },
   {
     quote:
-      "I booked for bridal hair and everything was flawless. The style held all day and photographed perfectly.",
-    name: "Lauren P.",
+      "Amazing salon! I\u2019ve been coming here in the last months for a blow dry with Daniel and Aracely and now I decided to do my balayage with them too, I\u2019m in love with my new look 😍 Daniel did exactly what I wanted but also he advised me what was best for my hair. 100% recommend. Thank you",
+    name: "Rocio R.",
   },
 ];
 

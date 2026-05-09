@@ -22,7 +22,7 @@ type FeedResponse =
 function captionLabel(caption: string | null): string {
   if (!caption?.trim()) return "Instagram";
   const t = caption.replace(/\s+/g, " ").trim();
-  return t.length > 52 ? `${t.slice(0, 52)}…` : t;
+  return t.length > 52 ? `${t.slice(0, 52)}\u2026` : t;
 }
 
 function SlideCard({
@@ -131,8 +131,8 @@ export function InstagramFeedSlider() {
             </>
           ) : (
             <>
-              A curated look at recent work — swipe sideways to browse. For
-              day-to-day cuts and colour, follow{" "}
+              A curated look at recent work &mdash; swipe sideways to browse.
+              For day-to-day cuts and colour, follow{" "}
               <a
                 href={INSTAGRAM_URL}
                 target="_blank"

@@ -1,15 +1,10 @@
 const brands = [
   {
-    name: "Olaplex",
+    name: "O\u0026M",
     description:
-      "Our humble beginnings started in a California garage, and since 2014 have grown exponentially to include millions of fans worldwide. Our patented technology is continuously changing what is possible for hair!",
+      "O\u0026M product formulas replace harsh chemicals with active natural extracts and minerals, including native Australian ingredients like Lilly Pilly, Banksia Flower, Quandong, Tasmanian Sea Kelp and Davidson Plum, as well as quality essential oils that deliver real benefits.",
   },
-  {
-    name: "O&M",
-    description:
-      "O&M product formulas replace harsh chemicals with active natural extracts and minerals, including native Australian ingredients like Lilly Pilly, Banksia Flower, Quandong, Tasmanian Sea Kelp and Davidson Plum, as well as quality essential oils that deliver real benefits.",
-  },
-];
+] as const;
 
 export function Brands() {
   return (
@@ -24,20 +19,20 @@ export function Brands() {
           </h2>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
+        <div className="mx-auto max-w-3xl">
           {brands.map((brand) => (
-            <div
+            <article
               key={brand.name}
-              className="rounded-md border border-border p-8 transition-colors duration-300 hover:border-accent lg:p-12"
+              className="rounded-md border border-border bg-background/50 p-8 transition-colors duration-300 hover:border-accent lg:p-12"
             >
-              <h3 className="mb-4 font-serif text-2xl text-foreground lg:text-3xl">
+              <h3 className="font-serif text-2xl text-foreground lg:text-3xl">
                 {brand.name}
               </h3>
-              <div className="mb-6 h-px w-10 bg-accent" />
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <div className="mt-4 mb-6 h-px w-10 bg-accent" />
+              <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
                 {brand.description}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </div>

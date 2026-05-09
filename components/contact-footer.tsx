@@ -4,14 +4,28 @@ export function ContactFooter() {
   return (
     <footer id="contact" className="bg-primary py-16 text-primary-foreground">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 lg:flex-row lg:justify-between lg:px-12">
-        <div>
-          <h3 className="font-serif text-3xl text-primary-foreground">
-            HairStudio 89
-          </h3>
-          <p className="mt-4 max-w-md text-sm leading-7 text-primary-foreground/80">
-            Boutique hair studio focused on tailored cuts, modern colour, and
-            refined styling for everyday confidence.
-          </p>
+        <div className="max-w-md space-y-8">
+          <div>
+            <h3 className="font-serif text-3xl text-primary-foreground">
+              HairStudio 89
+            </h3>
+            <div className="mt-4 space-y-2 text-sm leading-7 text-primary-foreground/80">
+              <p className="font-medium text-primary-foreground">
+                Exclusive Key Worker Offer
+              </p>
+              <p>
+                Receive 15% off your appointment, Tuesday&ndash;Thursday only.
+                Valid ID required.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-2 text-sm leading-7 text-primary-foreground/80">
+            <p className="font-serif font-medium leading-snug text-primary-foreground">
+              Love your hair? Share it!
+            </p>
+            <p>Refer a friend and you&apos;ll both get 15% off.</p>
+          </div>
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2">
@@ -21,7 +35,8 @@ export function ContactFooter() {
             </p>
             <p>63 Lupus St</p>
             <p>Pimlico, London SW1V 3EY</p>
-            <p>Mon-Sat: 9am - 7pm</p>
+            <p>Tue&ndash;Fri: 10am&ndash;8pm</p>
+            <p>Sat: 9am&ndash;4pm</p>
           </div>
           <div className="space-y-2 text-sm text-primary-foreground/80">
             <p className="uppercase tracking-[0.16em] text-primary-foreground">
@@ -37,7 +52,7 @@ export function ContactFooter() {
               href="mailto:booking@hairstudio89.co.uk"
               className="block hover:text-primary-foreground"
             >
-              booking@hairstudio89.co.uk
+              bookingthestudio89@gmail.com
             </a>
             <a
               href={BOOKING_URL}

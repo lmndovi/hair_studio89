@@ -8,13 +8,7 @@ const services = [
     tag: "Styling",
   },
   {
-    title: "Precision Haircut",
-    description:
-      "Shape-enhancing cuts tailored to your features and lifestyle.",
-    tag: "Cut",
-  },
-  {
-    title: "Balayage & Gloss",
+    title: "Balayage \u0026 Gloss",
     description:
       "Soft dimensional color finished with healthy, reflective gloss.",
     tag: "Color",
@@ -28,9 +22,6 @@ const services = [
   },
 ] as const;
 
-/** Two identical halves for a seamless infinite marquee */
-const serviceMarqueeStrip = [...services, ...services];
-
 export function Services() {
   return (
     <section id="services" className="bg-background py-20 lg:py-24">
@@ -41,7 +32,7 @@ export function Services() {
               Signature Services
             </p>
             <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-4xl">
-              Crafted for texture, movement, and glow.
+              Modern cuts and lived-in colour designed to last.
             </h2>
           </div>
           <a
@@ -54,21 +45,15 @@ export function Services() {
           </a>
         </div>
 
-        <div
-          className="services-marquee-outer py-3"
-          tabIndex={0}
-          aria-label="Signature services carousel"
-        >
-          <div className="services-marquee-track flex gap-5">
-            {[...serviceMarqueeStrip, ...serviceMarqueeStrip].map(
-              (service, index) => (
-                <a
-                  key={`${service.title}-${index}`}
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex h-[22rem] w-[19.5rem] shrink-0 flex-col rounded-2xl border border-border/90 bg-card p-8 shadow-sm ring-1 ring-transparent transition duration-300 hover:-translate-y-1 hover:border-accent/35 hover:bg-secondary/30 hover:shadow-md hover:ring-accent/15"
-                >
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <a
+              key={service.title}
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex min-h-[22rem] flex-col rounded-2xl border border-border/90 bg-card p-8 shadow-sm ring-1 ring-transparent transition duration-300 hover:-translate-y-1 hover:border-accent/35 hover:bg-secondary/30 hover:shadow-md hover:ring-accent/15"
+            >
                   <span className="w-fit rounded-full border border-border/80 bg-background/80 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground transition group-hover:border-accent/30 group-hover:text-foreground">
                     {service.tag}
                   </span>
@@ -88,10 +73,8 @@ export function Services() {
                       →
                     </span>
                   </span>
-                </a>
-              ),
-            )}
-          </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>

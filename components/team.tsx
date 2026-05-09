@@ -3,7 +3,7 @@ const team = [
     name: "Araceli Perez",
     initials: "AP",
     tagline: "Freehand balayage · 17+ years",
-    bio: "Araceli brings with her over 17 years of experience in the industry, having worked in numerous salons across the world. Her speciality is in the freehand balayage technique, which she has honed over the years to create stunning and natural-looking results. Araceli’s experience also includes working as a creative stylist for events in the Middle East and the UK.",
+    bio: "Araceli brings with her over 17 years of experience in the industry, having worked in numerous salons across the world. Her speciality is in the freehand balayage technique, which she has honed over the years to create stunning and natural-looking results. Araceli\u2019s experience also includes working as a creative stylist for events in the Middle East and the UK.",
   },
   {
     name: "Daniel Matez",
@@ -48,7 +48,7 @@ export function Team() {
         </h2>
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
           These two artists prefer the spotlight to stay
-          on their craft and you hair.
+          on their craft and your hair.
         </p>
 
         <div className="mt-12 grid gap-10 md:grid-cols-2 md:gap-12">
