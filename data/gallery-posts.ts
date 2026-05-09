@@ -14,33 +14,24 @@ export type CuratedGalleryPost = {
 
 export const curatedGalleryPosts: CuratedGalleryPost[] = [
   {
-    id: "balayage",
-    imageSrc: "/images/balayage.jpg",
-    caption: "Balayage \u0026 gloss",
-  },
-  {
-    id: "treatment",
-    imageSrc: "/images/hair-treatment.jpg",
-    caption: "Treatment ritual",
-  },
-  {
     id: "result-1",
-    imageSrc: "/images/gallery/hair-result-1.jpg",
-    caption: "Dimensional colour",
+    imageSrc:
+      "/images/gallery/656971786_17996368532925958_860149472021765218_n.jpg",
+    caption: "Face-framing caramel balayage",
+    instagramPostUrl: "https://www.instagram.com/p/DWVrG00F4hC/?img_index=1",
   },
   {
     id: "result-2",
-    imageSrc: "/images/gallery/hair-result-2.jpg",
-    caption: "Bridal-ready finish",
+    imageSrc:
+      "/images/gallery/671813813_17999612345925958_8558819217781760793_n.jpg",
+    caption: "Cool blonde dimension",
+    instagramPostUrl: "https://www.instagram.com/p/DXZHPv5l1-W/?img_index=1",
   },
   {
     id: "result-3",
-    imageSrc: "/images/gallery/hair-result-3.jpg",
-    caption: "Movement \u0026 shine",
-  },
-  {
-    id: "studio",
-    imageSrc: "/images/salon-hero.webp",
-    caption: "The studio",
+    imageSrc:
+      "/images/gallery/682040977_18000420164925958_6758963316320720298_n.jpg",
+    caption: "Honey-blonde balayage",
+    instagramPostUrl: "https://www.instagram.com/p/DXolw5mF5co/?img_index=1",
   },
 ];

@@ -1,6 +1,7 @@
 "use client";
 
 import { curatedGalleryPosts } from "@/data/gallery-posts";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -35,19 +36,19 @@ function SlideCard({
   label: string;
 }) {
   const article = (
-    <article className="relative h-72 w-72 overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:border-accent/40 hover:shadow-md">
+    <article className="relative aspect-square w-full max-w-[min(24rem,calc(100vw-3rem))] overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:border-accent/40 hover:shadow-md sm:aspect-auto sm:h-96 sm:w-96 sm:max-w-none">
       <Image
         src={imageUrl}
         alt={label}
         fill
-        className="object-cover"
-        sizes="288px"
+        className="object-cover object-[center_22%]"
+        sizes="(max-width: 640px) calc(100vw - 3rem), 384px"
         unoptimized={imageUrl.startsWith("http")}
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/90 via-background/15 to-transparent" />
-      <p className="absolute bottom-4 left-4 right-4 text-xs uppercase tracking-[0.18em] text-foreground">
-        {label}
-      </p>
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/90 via-background/15 to-transparent"
+        aria-hidden
+      />
     </article>
   );
 
@@ -57,7 +58,8 @@ function SlideCard({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="block shrink-0 snap-start"
+        aria-label={`${label} — view on Instagram`}
+        className="block shrink-0 snap-start rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
         {article}
       </a>
@@ -112,6 +114,9 @@ export function InstagramFeedSlider() {
         label: p.caption,
       }));
 
+  const isScrollStrip =
+    state === "ready" && useInstagram && slides.length > 3;
+
   return (
     <div className="mt-10 space-y-6">
       <div className="flex flex-wrap items-end justify-between gap-4 px-0">
@@ -127,12 +132,17 @@ export function InstagramFeedSlider() {
               >
                 @hairstudio89_
               </a>
-              . Swipe or drag sideways to browse.
+              .
+              {isScrollStrip ? (
+                <> Swipe or drag sideways to browse.</>
+              ) : (
+                <> Recent posts from the chair.</>
+              )}
             </>
           ) : (
             <>
-              A curated look at recent work &mdash; swipe sideways to browse.
-              For day-to-day cuts and colour, follow{" "}
+              A curated look at recent work from the chair. For day-to-day
+              cuts and colour, follow{" "}
               <a
                 href={INSTAGRAM_URL}
                 target="_blank"
@@ -155,19 +165,27 @@ export function InstagramFeedSlider() {
         </a>
       </div>
 
-      <div className="-mx-6 px-6 lg:-mx-12 lg:px-12">
+      <div
+        className={cn(isScrollStrip && "-mx-6 px-6 lg:-mx-12 lg:px-12")}
+      >
         <div
-          className={`scrollbar-hide flex gap-4 overflow-x-auto scroll-smooth pb-2 pt-1 snap-x snap-mandatory ${
-            state === "loading" ? "opacity-60" : ""
-          }`}
+          className={cn(
+            "pb-2 pt-1",
+            state === "loading" && "opacity-60",
+            isScrollStrip
+              ? "scrollbar-hide flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth"
+              : "grid grid-cols-1 justify-items-center gap-1 sm:grid-cols-3 sm:gap-1",
+          )}
           aria-busy={state === "loading"}
-          aria-label="Instagram gallery slider"
+          aria-label={
+            isScrollStrip ? "Instagram gallery slider" : "Gallery images"
+          }
         >
           {state === "loading"
-            ? Array.from({ length: 6 }).map((_, i) => (
+            ? Array.from({ length: 3 }).map((_, i) => (
                 <div
                   key={`sk-${i}`}
-                  className="h-72 w-72 shrink-0 snap-start animate-pulse rounded-xl border border-border bg-muted"
+                  className="aspect-square w-full max-w-[min(24rem,calc(100vw-3rem))] shrink-0 animate-pulse rounded-xl border border-border bg-muted sm:aspect-auto sm:h-96 sm:w-96 sm:max-w-none sm:snap-start"
                 />
               ))
             : slides.map((slide) => (

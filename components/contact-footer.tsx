@@ -1,4 +1,5 @@
 import { BOOKING_URL } from "@/lib/booking";
+import { SALON_EMAIL } from "@/lib/contact";
 
 export function ContactFooter() {
   return (
@@ -49,10 +50,10 @@ export function ContactFooter() {
               07549 365189
             </a>
             <a
-              href="mailto:booking@hairstudio89.co.uk"
+              href={`mailto:${SALON_EMAIL}`}
               className="block hover:text-primary-foreground"
             >
-              bookingthestudio89@gmail.com
+              {SALON_EMAIL}
             </a>
             <a
               href={BOOKING_URL}

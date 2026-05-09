@@ -31,9 +31,9 @@ export function Services() {
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
               Signature Services
             </p>
-            <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-4xl">
+            {/* <h2 className="mt-3 font-serif text-3xl text-foreground sm:text-4xl">
               Modern cuts and lived-in colour designed to last.
-            </h2>
+            </h2> */}
           </div>
           <a
             href={BOOKING_URL}

@@ -2,14 +2,14 @@ const team = [
   {
     name: "Araceli Perez",
     initials: "AP",
-    tagline: "Freehand balayage · 17+ years",
-    bio: "Araceli brings with her over 17 years of experience in the industry, having worked in numerous salons across the world. Her speciality is in the freehand balayage technique, which she has honed over the years to create stunning and natural-looking results. Araceli\u2019s experience also includes working as a creative stylist for events in the Middle East and the UK.",
+    tagline: "Freehand balayage · 20+ years",
+    bio: "Araceli brings with her over 20 years of experience in the industry, having worked in numerous salons across the world. Her speciality is lived-in colour, which she has refined over the years to create seamless, natural-looking results. Araceli's experience also includes working as a creative stylist for events in the Middle East and the UK.",
   },
   {
     name: "Daniel Matez",
     initials: "DM",
-    tagline: "Creative colour & styling · 16+ years",
-    bio: "Daniel, on the other hand, has been in the industry for 16 years, and his expertise lies in creative colouring and styling. His talent has landed him the opportunity to collaborate on red-carpet events and fashion weeks. With his keen eye for detail and ability to create unique looks, Daniel is a valuable asset to our team.",
+    tagline: "Creative colour & styling · 19+ years",
+    bio: "Daniel has over 20 years of experience in the hair industry, specialising in creative colouring and styling. His work has taken him behind the scenes of red carpet events and fashion weeks, where he has developed a refined, detail-driven approach.",
   },
 ] as const;
 
@@ -41,15 +41,12 @@ export function Team() {
     <section id="team" className="bg-background py-20 lg:py-24">
       <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
         <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          Meet The Teaml
+          Meet The Team
         </p>
         <h2 className="mt-3 max-w-2xl font-serif text-3xl text-foreground sm:text-4xl">
           The creatives behind HairStudio&nbsp;89.
         </h2>
-        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          These two artists prefer the spotlight to stay
-          on their craft and your hair.
-        </p>
+       
 
         <div className="mt-12 grid gap-10 md:grid-cols-2 md:gap-12">
           {team.map((member) => (

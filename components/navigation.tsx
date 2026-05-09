@@ -1,6 +1,7 @@
 "use client";
 
 import { BOOKING_URL } from "@/lib/booking";
+import { SALON_EMAIL } from "@/lib/contact";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { useState } from "react";
 
@@ -47,7 +48,7 @@ export function Navigation() {
               <Phone className="h-4 w-4" />
             </a>
             <a
-              href="mailto:booking@hairstudio89.co.uk"
+              href={`mailto:${SALON_EMAIL}`}
               className="text-foreground/70 transition-colors hover:text-foreground"
               aria-label="Email us"
             >
@@ -95,7 +96,7 @@ export function Navigation() {
                 <Phone className="h-4 w-4" />
               </a>
               <a
-                href="mailto:booking@hairstudio89.co.uk"
+                href={`mailto:${SALON_EMAIL}`}
                 className="text-foreground/70 transition-colors hover:text-foreground"
               >
                 <Mail className="h-4 w-4" />
