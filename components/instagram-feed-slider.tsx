@@ -34,18 +34,22 @@ function SlideCard({
   href,
   imageUrl,
   label,
+  objectPositionClass,
   mosaicBottomCenter,
   mosaicSolo,
   useDesktopStrip,
+  className,
 }: {
   href: string | null;
   imageUrl: string;
   label: string;
+  objectPositionClass?: string;
   /** Last tile when count is odd and ≥3 — inverted pyramid (narrow screens only). */
   mosaicBottomCenter?: boolean;
   /** Single tile centered across the mosaic (narrow screens only). */
   mosaicSolo?: boolean;
   useDesktopStrip: boolean;
+  className?: string;
 }) {
   const wrapClass = cn(
     "block w-full min-w-0 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
@@ -54,6 +58,7 @@ function SlideCard({
     mosaicBottomCenter &&
       "max-sm:col-span-2 max-sm:max-w-[calc(50%-0.375rem)] max-sm:justify-self-center",
     useDesktopStrip ? STRIP_SLIDE_SM : "sm:w-full sm:max-w-none",
+    className,
   );
 
   const article = (
@@ -62,12 +67,15 @@ function SlideCard({
         src={imageUrl}
         alt={label}
         fill
-        className="object-cover object-[center_22%]"
+        className={cn(
+          "object-cover",
+          objectPositionClass ?? "object-[center_22%]",
+        )}
         sizes="(max-width: 640px) 42vw, 384px"
         unoptimized={imageUrl.startsWith("http")}
       />
       <div
-        className="pointer-events-none absolute inset-0 hidden bg-gradient-to-t from-background/90 via-background/15 to-transparent sm:block"
+        className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-14 bg-gradient-to-t from-background/35 to-transparent sm:block"
         aria-hidden
       />
     </article>
@@ -127,12 +135,14 @@ export function InstagramFeedSlider() {
         imageUrl: p.imageUrl,
         href: p.permalink,
         label: captionLabel(p.caption),
+        objectPositionClass: undefined,
       }))
     : curatedGalleryPosts.map((p) => ({
         id: p.id,
         imageUrl: p.imageSrc,
         href: p.instagramPostUrl ?? null,
         label: p.caption,
+        objectPositionClass: p.objectPositionClass,
       }));
 
   const isScrollStrip =
@@ -220,15 +230,28 @@ export function InstagramFeedSlider() {
                 const mosaicSolo = total === 1;
                 const mosaicBottomCenter =
                   total >= 3 && total % 2 === 1 && i === total - 1;
+                // Curated trio source order is the phone mosaic: left, right, bottom.
+                // On sm+ the row is left, center, right — swap the last two so the
+                // bottom tile sits in the center and the right tile stays on the right.
+                const desktopTrioOrder =
+                  !isScrollStrip && total === 3
+                    ? i === 1
+                      ? "sm:order-3"
+                      : i === 2
+                        ? "sm:order-2"
+                        : undefined
+                    : undefined;
                 return (
                   <SlideCard
                     key={slide.id}
                     href={slide.href}
                     imageUrl={slide.imageUrl}
                     label={slide.label}
+                    objectPositionClass={slide.objectPositionClass}
                     mosaicBottomCenter={mosaicBottomCenter}
                     mosaicSolo={mosaicSolo}
                     useDesktopStrip={isScrollStrip}
+                    className={desktopTrioOrder}
                   />
                 );
               })}

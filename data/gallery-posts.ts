@@ -4,12 +4,17 @@
  *
  * Optional `instagramPostUrl`: paste a single post's link so the tile opens
  * that Instagram URL (otherwise the tile is display-only).
+ *
+ * Order is the phone mosaic: left, right, then the centered bottom tile.
+ * On wider screens the bottom tile moves to the center so the right tile stays on the right.
  */
 export type CuratedGalleryPost = {
   id: string;
   imageSrc: string;
   caption: string;
   instagramPostUrl?: string;
+  /** Tailwind object-position classes. Defaults to a hair-crop bias. */
+  objectPositionClass?: string;
 };
 
 export const curatedGalleryPosts: CuratedGalleryPost[] = [
@@ -21,17 +26,17 @@ export const curatedGalleryPosts: CuratedGalleryPost[] = [
     instagramPostUrl: "https://www.instagram.com/p/DWVrG00F4hC/?img_index=1",
   },
   {
-    id: "result-2",
-    imageSrc:
-      "/images/gallery/671813813_17999612345925958_8558819217781760793_n.jpg",
-    caption: "Cool blonde dimension",
-    instagramPostUrl: "https://www.instagram.com/p/DXZHPv5l1-W/?img_index=1",
+    id: "julie",
+    imageSrc: "/images/gallery/julie-hair.jpg",
+    caption: "Lived-in brunette",
+    instagramPostUrl: "https://www.instagram.com/p/DbBuhlBAekL/",
+    objectPositionClass: "object-[center_52%]",
   },
   {
-    id: "result-3",
-    imageSrc:
-      "/images/gallery/682040977_18000420164925958_6758963316320720298_n.jpg",
-    caption: "Honey-blonde balayage",
-    instagramPostUrl: "https://www.instagram.com/p/DXolw5mF5co/?img_index=1",
+    id: "colour-in-progress",
+    imageSrc: "/images/gallery/colour-in-progress.jpg",
+    caption: "Blonde colour in progress",
+    instagramPostUrl: "https://www.instagram.com/p/DafT8XrF6qL/?img_index=1",
+    objectPositionClass: "object-center",
   },
 ];

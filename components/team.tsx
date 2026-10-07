@@ -1,22 +1,29 @@
+import Image from "next/image";
+
 const team = [
   {
     name: "Araceli Perez",
     initials: "AP",
+    image: "/images/ara.jpeg",
     tagline: "Freehand balayage · 20+ years",
     bio: "Araceli brings with her over 20 years of experience in the industry, having worked in numerous salons across the world. Her speciality is lived-in colour, which she has refined over the years to create seamless, natural-looking results. Araceli's experience also includes working as a creative stylist for events in the Middle East and the UK.",
   },
   {
     name: "Daniel Matez",
     initials: "DM",
+    image: "/images/daniel.jpeg",
     tagline: "Creative colour & styling · 19+ years",
     bio: "Daniel has over 20 years of experience in the hair industry, specialising in creative colouring and styling. His work has taken him behind the scenes of red carpet events and fashion weeks, where he has developed a refined, detail-driven approach.",
   },
 ] as const;
 
+const portraitFrame =
+  "relative mx-auto mt-4 aspect-[4/3] w-[88%] overflow-hidden rounded-xl border border-border bg-card sm:mt-5";
+
 function MonogramPlate({ initials }: { initials: string }) {
   return (
     <div
-      className="relative flex h-72 w-full items-center justify-center overflow-hidden rounded-xl border border-border bg-card"
+      className={`flex items-center justify-center ${portraitFrame}`}
       aria-hidden
     >
       <div
@@ -32,6 +39,32 @@ function MonogramPlate({ initials }: { initials: string }) {
           {initials}
         </span>
       </div>
+    </div>
+  );
+}
+
+function MemberPortrait({
+  name,
+  initials,
+  image,
+}: {
+  name: string;
+  initials: string;
+  image: string | null;
+}) {
+  if (!image) {
+    return <MonogramPlate initials={initials} />;
+  }
+
+  return (
+    <div className={portraitFrame}>
+      <Image
+        src={image}
+        alt={`${name} finishing a client's hair at HairStudio 89`}
+        fill
+        className="object-cover object-center"
+        sizes="(max-width: 768px) 84vw, 30rem"
+      />
     </div>
   );
 }
@@ -54,7 +87,11 @@ export function Team() {
               key={member.name}
               className="flex flex-col rounded-xl border border-border bg-card shadow-sm"
             >
-              <MonogramPlate initials={member.initials} />
+              <MemberPortrait
+                name={member.name}
+                initials={member.initials}
+                image={member.image}
+              />
               <div className="flex flex-1 flex-col p-6 pb-10 lg:p-8 lg:pb-12">
                 <h3 className="font-serif text-2xl text-card-foreground lg:text-3xl">
                   {member.name}

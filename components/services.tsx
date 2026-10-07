@@ -22,6 +22,13 @@ const services = [
   },
 ] as const;
 
+const patchTestPolicy = [
+  "For all clients booking a colour service with Hairstudio89 for the first time, a patch test is mandatory at least 72 hours before the appointment.",
+  "Patch tests are provided free of charge and take only a few minutes.",
+  "If a patch test has not been carried out within the required timeframe, we reserve the right to refuse the colour service, and the deposit will not be refunded.",
+  "Clients who have not had colour services recently, have experienced allergies, or have had changes to medication or health conditions may be required to undergo a new patch test.",
+] as const;
+
 export function Services() {
   return (
     <section id="services" className="bg-background py-20 lg:py-24">
@@ -76,6 +83,29 @@ export function Services() {
             </a>
           ))}
         </div>
+
+        <aside className="mt-6 rounded-2xl border border-border/80 bg-secondary/30 px-6 py-5 sm:px-8 sm:py-6">
+          <div className="flex items-center gap-3">
+            <span className="h-px w-6 bg-accent/70" aria-hidden />
+            <h3 className="text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+              Patch Test Policy
+            </h3>
+          </div>
+          <ul className="mt-4 grid gap-x-10 gap-y-2.5 sm:grid-cols-2">
+            {patchTestPolicy.map((item) => (
+              <li
+                key={item}
+                className="flex gap-2.5 text-xs leading-relaxed text-muted-foreground"
+              >
+                <span
+                  className="mt-[0.45rem] size-1 shrink-0 rounded-full bg-accent"
+                  aria-hidden
+                />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </aside>
       </div>
     </section>
   );

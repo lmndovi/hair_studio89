@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BOOKING_URL } from "@/lib/booking";
 import { SALON_EMAIL } from "@/lib/contact";
 
@@ -38,6 +39,9 @@ export function ContactFooter() {
             <p>Pimlico, London SW1V 3EY</p>
             <p>Tue&ndash;Fri: 10am&ndash;8pm</p>
             <p>Sat: 9am&ndash;4pm</p>
+            <p className="pt-2 text-primary-foreground">
+              Hijab services/private hire available. Pre-booking required.
+            </p>
           </div>
           <div className="space-y-2 text-sm text-primary-foreground/80">
             <p className="uppercase tracking-[0.16em] text-primary-foreground">
@@ -55,14 +59,22 @@ export function ContactFooter() {
             >
               {SALON_EMAIL}
             </a>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 inline-flex rounded-md border border-primary-foreground/35 px-4 py-2 text-xs uppercase tracking-wider text-primary-foreground transition hover:border-primary-foreground/55 hover:bg-primary-foreground/10"
-            >
-              Reserve Online
-            </a>
+            <div className="flex flex-col items-start gap-2 pt-2">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex rounded-md border border-primary-foreground/35 px-4 py-2 text-xs uppercase tracking-wider text-primary-foreground transition hover:border-primary-foreground/55 hover:bg-primary-foreground/10"
+              >
+                Book Now
+              </a>
+              <Link
+                href="/booking-policy"
+                className="inline-flex rounded-md border border-primary-foreground/35 px-4 py-2 text-xs uppercase tracking-wider text-primary-foreground transition hover:border-primary-foreground/55 hover:bg-primary-foreground/10"
+              >
+                Policy
+              </Link>
+            </div>
           </div>
         </div>
       </div>

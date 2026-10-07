@@ -6,11 +6,12 @@ import { Menu, X, Phone, Mail } from "lucide-react";
 import { useState } from "react";
 
 const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#why" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/#services" },
+  { label: "About", href: "/#why" },
+  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Policy", href: "/booking-policy" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navigation() {
@@ -19,20 +20,20 @@ export function Navigation() {
   return (
     <header className="fixed left-0 right-0 top-0 z-50">
       <nav className="border-b border-border/60 bg-background/90 px-6 py-4 backdrop-blur-md lg:px-12 lg:py-5">
-        <div className="mx-auto flex max-w-7xl items-center justify-between">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between">
           <a
-            href="#"
+            href="/"
             className="font-serif text-2xl tracking-wide text-foreground lg:text-3xl"
           >
             HairStudio 89
           </a>
 
-          <div className="hidden items-center gap-10 lg:flex">
+          <div className="hidden items-center gap-2 lg:flex xl:gap-10">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm uppercase tracking-widest text-foreground/70 transition-colors duration-300 hover:text-foreground"
+                className="whitespace-nowrap text-sm uppercase tracking-widest text-foreground/70 transition-colors duration-300 hover:text-foreground"
               >
                 {link.label}
               </a>
