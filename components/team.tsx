@@ -13,7 +13,7 @@ const team = [
     name: "Daniel Matez",
     initials: "DM",
     image: "/images/daniel.jpg",
-    focus: "center 28%",
+    focus: "center 33%",
     tagline: "Creative colour & styling · 19+ years",
     bio: "Daniel has over 20 years of experience in the hair industry, specialising in creative colouring and styling. His work has taken him behind the scenes of red carpet events and fashion weeks, where he has developed a refined, detail-driven approach.",
   },
