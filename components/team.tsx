@@ -5,13 +5,15 @@ const team = [
     name: "Araceli Perez",
     initials: "AP",
     image: "/images/ara.jpeg",
+    focus: "center",
     tagline: "Freehand balayage · 20+ years",
     bio: "Araceli brings with her over 20 years of experience in the industry, having worked in numerous salons across the world. Her speciality is lived-in colour, which she has refined over the years to create seamless, natural-looking results. Araceli's experience also includes working as a creative stylist for events in the Middle East and the UK.",
   },
   {
     name: "Daniel Matez",
     initials: "DM",
-    image: "/images/daniel.jpeg",
+    image: "/images/daniel.jpg",
+    focus: "center 28%",
     tagline: "Creative colour & styling · 19+ years",
     bio: "Daniel has over 20 years of experience in the hair industry, specialising in creative colouring and styling. His work has taken him behind the scenes of red carpet events and fashion weeks, where he has developed a refined, detail-driven approach.",
   },
@@ -47,10 +49,12 @@ function MemberPortrait({
   name,
   initials,
   image,
+  focus,
 }: {
   name: string;
   initials: string;
   image: string | null;
+  focus: string;
 }) {
   if (!image) {
     return <MonogramPlate initials={initials} />;
@@ -62,7 +66,8 @@ function MemberPortrait({
         src={image}
         alt={`${name} finishing a client's hair at HairStudio 89`}
         fill
-        className="object-cover object-center"
+        className="object-cover"
+        style={{ objectPosition: focus }}
         sizes="(max-width: 768px) 84vw, 30rem"
       />
     </div>
@@ -91,6 +96,7 @@ export function Team() {
                 name={member.name}
                 initials={member.initials}
                 image={member.image}
+                focus={member.focus}
               />
               <div className="flex flex-1 flex-col p-6 pb-10 lg:p-8 lg:pb-12">
                 <h3 className="font-serif text-2xl text-card-foreground lg:text-3xl">
