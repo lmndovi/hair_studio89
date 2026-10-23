@@ -13,19 +13,22 @@ const team = [
     name: "Daniel Matez",
     initials: "DM",
     image: "/images/daniel.jpg",
-    focus: "center 33%",
+    focus: "center 36%",
     tagline: "Creative colour & styling · 19+ years",
     bio: "Daniel has over 20 years of experience in the hair industry, specialising in creative colouring and styling. His work has taken him behind the scenes of red carpet events and fashion weeks, where he has developed a refined, detail-driven approach.",
   },
 ] as const;
 
 const portraitFrame =
-  "relative mx-auto mt-4 aspect-[4/3] w-[88%] overflow-hidden rounded-xl border border-border bg-card sm:mt-5";
+  "relative mx-auto mt-4 w-[88%] overflow-hidden rounded-xl border border-border bg-card sm:mt-5";
+
+const portraitAspect = { aspectRatio: "6 / 5" };
 
 function MonogramPlate({ initials }: { initials: string }) {
   return (
     <div
       className={`flex items-center justify-center ${portraitFrame}`}
+      style={portraitAspect}
       aria-hidden
     >
       <div
@@ -61,7 +64,7 @@ function MemberPortrait({
   }
 
   return (
-    <div className={portraitFrame}>
+    <div className={portraitFrame} style={portraitAspect}>
       <Image
         src={image}
         alt={`${name} finishing a client's hair at HairStudio 89`}
